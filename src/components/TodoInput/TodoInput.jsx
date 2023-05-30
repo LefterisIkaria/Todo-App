@@ -1,3 +1,6 @@
+import Box from "../UI/Box/Box";
+import styles from "./TodoInput.module.css";
+
 import { useState } from "react";
 
 function TodoInput({ onAddTodo }) {
@@ -17,15 +20,17 @@ function TodoInput({ onAddTodo }) {
   };
 
   return (
-    <form onSubmit={addTodoHandler}>
-      <input
-        type="text"
-        placeholder="Todo..."
-        value={title}
-        onChange={titleChangedHandler}
-      />
-      <button type="submit">Add</button>
-    </form>
+    <Box>
+      <form onSubmit={addTodoHandler} className={styles.todoForm}>
+        <input
+          type="text"
+          placeholder="Todo..."
+          value={title}
+          onChange={titleChangedHandler}
+        />
+        <button type="submit">Add</button>
+      </form>
+    </Box>
   );
 }
 

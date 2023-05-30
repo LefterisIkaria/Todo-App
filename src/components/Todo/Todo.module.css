@@ -1,0 +1,22 @@
+.todo {
+  display: flex;
+  align-items: center;
+}
+
+.todo input[type="checkbox"] {
+  margin-right: 1rem;
+}
+
+.todo button {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.completed {
+  text-decoration: line-through;
+}

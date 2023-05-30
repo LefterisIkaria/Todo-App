@@ -1,12 +1,12 @@
 import { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
+import TodoInput from "./components/TodoInput/TodoInput";
+import TodoList from "./components/TodoList/TodoList";
 
 const dummy = [
-  { id: 1, title: "Buy milk" },
-  { id: 2, title: "Study" },
+  { id: 1, title: "Buy milk", completed: false },
+  { id: 2, title: "Study", completed: true },
 ];
 
 function App() {
@@ -21,11 +21,29 @@ function App() {
     setTodos((oldTodos) => [...oldTodos, newTodo]);
   };
 
+  const toggleCompletedHandler = (todoId) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      );
+    });
+  };
+
+  const deleteHandler = (todoId) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== todoId);
+    });
+  };
+
   return (
-    <>
+    <main className={styles.app}>
       <TodoInput onAddTodo={addTodoHandler} />
-      <TodoList todos={todos} />
-    </>
+      <TodoList
+        todos={todos}
+        onToggleCompleted={toggleCompletedHandler}
+        onDelete={deleteHandler}
+      />
+    </main>
   );
 }
 
