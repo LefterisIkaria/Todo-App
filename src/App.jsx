@@ -18,7 +18,7 @@ function App() {
       title: title,
     };
 
-    setTodos((oldTodos) => [...oldTodos, newTodo]);
+    setTodos((oldTodos) => [newTodo, ...oldTodos]);
   };
 
   const toggleCompletedHandler = (todoId) => {

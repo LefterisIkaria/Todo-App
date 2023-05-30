@@ -4,9 +4,12 @@ import Todo from "../Todo/Todo";
 import styles from "./TodoList.module.css";
 
 function TodoList({ todos, onToggleCompleted, onDelete }) {
-  return (
+  const incompleteTodos = todos.filter((todo) => !todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
+
+  const todoList = (
     <ul className={styles.todoList}>
-      {todos.map((todo) => (
+      {[...incompleteTodos, ...completedTodos].map((todo) => (
         <li key={todo.id}>
           <Todo
             todo={todo}
@@ -17,6 +20,10 @@ function TodoList({ todos, onToggleCompleted, onDelete }) {
       ))}
     </ul>
   );
+
+  const emptyMessage = <p>No todos yet...</p>;
+
+  return <Box>{todos.length === 0 ? emptyMessage : todoList}</Box>;
 }
 
 export default TodoList;

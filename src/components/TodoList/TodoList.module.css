@@ -5,8 +5,11 @@
 
 .todoList li {
   margin-bottom: 1rem;
-  background-color: #f9f9f9;
   color: #333;
   padding: 0.5rem;
   border-radius: 4px;
+}
+
+.todoList p {
+  color: #333;
 }
