@@ -10,6 +10,6 @@
   border-radius: 4px;
 }
 
-.todoList p {
+.emptyMessage {
   color: #333;
 }

@@ -11,17 +11,13 @@ function TodoList({ todos, onToggleCompleted, onDelete }) {
     <ul className={styles.todoList}>
       {[...incompleteTodos, ...completedTodos].map((todo) => (
         <li key={todo.id}>
-          <Todo
-            todo={todo}
-            onToggleCompleted={onToggleCompleted}
-            onDelete={onDelete}
-          />
+          <Todo todo={todo} onToggleCompleted={onToggleCompleted} onDelete={onDelete} />
         </li>
       ))}
     </ul>
   );
 
-  const emptyMessage = <p>No todos yet...</p>;
+  const emptyMessage = <p className={styles.emptyMessage}>No todos yet...</p>;
 
   return <Box>{todos.length === 0 ? emptyMessage : todoList}</Box>;
 }

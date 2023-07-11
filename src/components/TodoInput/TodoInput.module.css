@@ -4,12 +4,23 @@
   align-items: center;
 }
 
-.todoForm input {
+.todoInput {
   flex-grow: 1;
   margin-right: 1rem;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+input.invalid {
+  border: 1px solid salmon;
+  background-color: saddlebrown;
+  color: pink;
+}
+
+p.invalid {
+  margin-top: 1rem;
+  color: salmon;
 }
 
 .todoForm button {
